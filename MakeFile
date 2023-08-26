@@ -1,0 +1,14 @@
+NASM=nasm
+NASMFLAGS=-f bin
+BOOTLOADER=boot.asm
+OUTPUT_IMAGE=diskete.img
+SCR_DIR=bootloader
+OUT_DIR=build
+
+all: $(OUTPUT_IMAGE)
+
+$(OUTPUT_IMAGE): $(BOOTLOADER)
+    $(NASM) $(NASMFLAGS) $(BOOTLOADER) -o $(OUTPUT_IMAGE)
+
+clean:
+    rm -f $(OUTPUT_IMAGE)
